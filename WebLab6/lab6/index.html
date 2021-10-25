@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lab 6</title>
+</head>
+<body>
+    <h2>Welcome <span id="name"></span></h2>
+    <div class="main">
+        
+        <div class="A">
+            <label for="a">a = </label>
+            <input type="number" name="a" id="a">
+        </div>
+        <div class="B">
+            <label for="b">b = </label>
+            <input type="number" name="b" id="b">
+        </div>
+        <div>
+        <button onclick="calculate(this)" id="add">add</button>
+        <button onclick="calculate(this)" id="sub">subtract</button>
+        <button onclick="calculate(this)" id="mult">multiply</button>
+        <button onclick="calculate(this)" id="div">divide</button>
+        </div>
+        <div>
+            <div style="display: flex;">
+            <p>result : <span id="result"></span></p>
+            </div>
+            <button onclick="printArray()">print array</button>
+            <p id="arr"></p>
+        </div>
+        
+    </div>
+    <script src="lab6script.js"></script>
+</body>
+</html>

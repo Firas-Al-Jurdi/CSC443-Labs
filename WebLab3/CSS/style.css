@@ -1,0 +1,14 @@
+@font-face {
+    font-family: GreyQo-Regular;
+    src: url(../font/GreyQo-Regular.ttf);
+}
+.Par {
+    border-color: #FFC0CB;
+    border-width: 2px;
+    border-style: solid;
+    letter-spacing: 2px;
+    margin: 16px 0px 16px 16px;
+    padding: 24px 0px 24px 24px;
+    font-family: 'GreyQo-Regular';
+    font-size: 24px;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Firas Al Jurdi"/>
+    <meta discription="Lab 2 webpage" content="Implementing some of the things we learned in class"/>
+    <meta keywords="Lab2, Webapp, Web programming"/>
+    <title>Firas Al Jurdi</title>
+</head>
+<body>
+    <h1>Lebanese American Univeristy</h1>
+    <a  href="https://catalog.lau.edu.lb/2017-2018/university/mission-values-vision.php" target="_blank"><img src="lau_logo.jpg" alt="LAU image" width="250px"/></a>
+    <h3>Mission</h3>
+    <p>The Lebanese American University is committed to academic
+        excellence, student centeredness, civic engagement,<br>the advancement of scholarship, the
+        education of the whole person, and the formation of leaders in a diverse world.</p>
+    <h3>Value</h3>
+    <ul>
+      <li style="list-style-type:none"> The <i>Lebanese American University</i> endeavors to act in a manner that is guided by a set of core
+            values<br> and a
+             deep-rooted sense of shared ethical values and aspirations that define its character and
+            culture.<br> Building
+             on this foundation, LAU:
+            </li>
+            <ul><li> raws its fundamental inspiration from the devotion of its Presbyterian Founders to
+                always seek the
+                 truth, respect human dignity,<br>promote gender equality, and be inclusive,</li>
+                 <li>
+                 provides educational opportunities as one university with multiple campuses, each with
+                distinctive
+                 <b>strengths</b> and attributes.</li>
+                <li>commits to academic and service excellence,</li>
+                <li><q>demonstrates dignity and respect for and from the Board of Trustees, faculty, staff, and
+                students in
+                 word and in deed.</q></li></ul>
+    </ul>
+    <div>
+        <form>
+            <title>Application For The LAU Admission Office</title>
+            <p><b>Note:</b> Form is to be completed at least 21 days prior the dealdine</p>
+            <fieldset>
+            <legend>Personal Details</legend>
+            <div>
+                <label>Name: </label>
+                <input type="text" placeholder="Enter name here"/>
+            </div>
+            <div>
+                <label>Address: </label>
+                <input type="text" placeholder="Enter address here"/>
+            </div>
+            <div>
+                <label>Email: </label>
+                <input type="email" placeholder="Enter email here"/>
+            </div>
+            <div>
+                <label>Phone Number: </label>
+                <input type="text" maxlength="10" placeholder="Enter 10 digit number here"/>
+            </div>
+            <div>
+                <label>IQ: </label>
+                <input type="text" placeholder="Enter IQ here"/>
+            </div>
+            <div>
+                <label>Gender</label>
+                <br>
+                <br>
+                <input type="radio" name="gender" checked="checked">
+                <label>Male</label>
+
+                <br>
+                <input type="radio" name="gender">
+                <label>Female</label>
+
+            </div>
+            <br>
+            <div>
+                <label>date of birth: </label>
+                <input type="date">
+            </div>
+        </fieldset>
+        <fieldset>
+                <label>Check All That Apply</label>
+                <br>
+                <br>
+                <input type="checkbox">
+                <label>I have Friends who are LAU alumni</label>
+                <br>
+                <input type="checkbox">
+                <label>I work full-time</label>
+                <br>
+                <input type="checkbox">
+                <label>I don't need a financial Aid</label>
+                <br>
+                <input type="checkbox">
+                <label>I am premitted to study at LAU</label>
+                <br>
+            </fieldset>
+            <fieldset>
+                <label>Education level completed: </label>
+                <select>
+                    <option>university</option>
+                    <option>college</option>
+                    <option>high school</option>
+                    <option>None</option>
+                  </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Essay Section</legend>
+                <br>
+                <label>In 50 words or lmore explain why you want to study at LAU</label>
+                <br>
+                <br>
+                <textarea placeholder="Enter text here" style="width:400px;height:50px"></textarea>
+                <br>
+                <label>Please upload contact details for 2 references</label>
+                <br>
+                <textarea placeholder="Enter text here" style="width:400px;height:50px"></textarea>
+                <br>
+                <br>
+                <label>Upload Police Clearance Certificate, Blank Statement and Medical Certificate here: </label>
+                <input id="files"  type="file" multiple>
+                <br>
+            </fieldset>
+            <input type="submit" value="Send your application">
+        </form>
+    </div>
+</body>
+</html>
