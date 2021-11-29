@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id"
+        content="454863120223-uq5osfe0np1qggq548g5icbb2k7ha23a.apps.googleusercontent.com">
+    <title>User Sign in</title>
+</head>
+
+<body>
+    <h1>Google Sign in</h1>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+
+</body>
+<script>
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+        fetch("http://localhost:8081/user?name=" + profile.getName() + "&img=" + profile.getImageUrl(), {
+                method: "GET"
+            })
+            .then(function (response) {
+                window.location.href = response.url;
+            })
+            .catch(function (error) {
+                console.error(err);
+            });
+
+    }
+</script>
+
+</html>

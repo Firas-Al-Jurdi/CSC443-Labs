@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+</head>
+
+<body>
+    <h1>Hi <%= name %> <img src="<%= img %>" alt=""></h1>
+    <h1>Weather Forcast</h1>
+    <div>
+    <label for="weatherOptions">Get Weather:</label>
+    <select name="weatherOptions" id="sel" onchange="hide()">
+        <option value="none" selected disabled hidden>Choose Option</option>
+        <option value="location">Of Current Location</option>
+        <option value="city">By City Name</option>   
+    </select>
+    </div>
+    
+    <div id="locInput" style="display: none;">
+        <br>
+        <button onclick="FetchWeather()">Check My City</button>
+    </div>
+    <div id="cityInput" style="display: none;">
+    <p>Enter the name of the city you want to check the weather for</p>
+    <input type="text" id="cityName">
+    <button onclick="FetchWeatherCity()">Check</button>
+    </div>
+    <br>
+    <div>
+        <table border="1" id="MyTable">
+            <tr>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>Pressure</th>
+            </tr>
+            <tr id="data" style="display: none;">
+                <td id="ctname"></td>
+                <td id="temp"></td>
+                <td id="pres"></td>
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+<script>
+    function hide(){
+        if(document.getElementById('sel').value == "location"){
+            document.getElementById('cityInput').style.display = "none";
+            document.getElementById('locInput').style.display = "block";
+            document.getElementById('data').style.display = "none";
+        }
+        else if(document.getElementById('sel').value == "city"){
+            document.getElementById('locInput').style.display = "none";
+            document.getElementById('cityInput').style.display = "block";
+            document.getElementById('data').style.display = "none";
+        }
+    }
+    function FetchWeatherCity(){
+        let cityName = document.getElementById('cityName').value;
+        var row = document.getElementById('data');
+        row.style.display = "table-row";
+        var cell1 = document.getElementById('ctname');
+        var cell2 = document.getElementById('temp');
+        var cell3 = document.getElementById('pres');
+        fetch("https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=03c5b460a88d61808dcfba6b1e07b6f1", {method: "get" })
+        .then(response => response.json())
+        .then((data) => {
+        cell1.innerText = data.name;
+        cell2.innerText = data.main.temp;
+        cell3.innerText = data.main.pressure;
+        //const demo = document.getElementById("demo");
+        //demo.innerText = data;
+        })
+        .catch(function (err) {
+        console.log("Error: " + err);
+        });
+
+    }
+
+    function FetchWeather(){
+        
+        
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) =>{
+            var lt = position.coords.latitude;
+            var lg = position.coords.longitude;
+            var row = document.getElementById('data');
+            row.style.display = "table-row";
+            var cell1 = document.getElementById('ctname');
+            var cell2 = document.getElementById('temp');
+            var cell3 = document.getElementById('pres');
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lt}&lon=${lg}&appid=03c5b460a88d61808dcfba6b1e07b6f1`,
+            {method: "get" })
+            .then(response => response.json())
+            .then((data) => {
+            cell1.innerText = data.name;
+            cell2.innerText = data.main.temp;
+            cell3.innerText = data.main.pressure;
+            //const demo = document.getElementById("demo");
+            //demo.innerText = data;
+            })
+            .catch(function (err) {
+            console.log("Error: " + err);
+            });
+        });
+        } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+
+    
+    }
+
+</script>
+
+</html>
